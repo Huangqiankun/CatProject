@@ -2,12 +2,16 @@ package com.hqk.catproject.base;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.gson.Gson;
 import com.hjq.permissions.OnPermissionCallback;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
@@ -15,11 +19,13 @@ import com.hqk.catproject.MainActivity;
 
 import java.util.List;
 
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity implements Handler.Callback {
 
 
     public abstract int getContentViewId();
 
+
+    protected Gson gson = new Gson();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +34,11 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         initData();
 
+    }
+
+    @Override
+    public boolean handleMessage(@NonNull Message message) {
+        return false;
     }
 
     public abstract void initData();
