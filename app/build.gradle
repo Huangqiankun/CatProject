@@ -12,19 +12,13 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-        //    private static final String AK = "WWhPUdkjTSyVB0Bu3lzYwbvG";
-        //    private static final String SECRET = "ioLMcI8E5THzO9tRLiLFlzh3RULpdbNl";
+
         buildConfigField 'String','GET_OAUTH_TOKEN_URL','"https://aip.baidubce.com/oauth/2.0/token?"'
         buildConfigField 'String','AK','"2p8d23GtrBHyaQixgqyPtAIM"'
         buildConfigField 'String','SECRET','"0SWfrU65xRu6Gxq7nuTHoskRAKLd5rht "'
         buildConfigField 'String','GET_ANIMAL_URL','"https://aip.baidubce.com/rest/2.0/image-classify/v1/animal"'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-//        //添加如下配置 开启annotation processor
-//        javaCompileOptions {
-//            annotationProcessorOptions {
-//                includeCompileClasspath true
-//            }
-//        }
+
     }
 
 
