@@ -23,7 +23,6 @@ import com.huantansheng.easyphotos.EasyPhotos;
 import com.huantansheng.easyphotos.callback.SelectCallback;
 import com.huantansheng.easyphotos.models.album.entity.Photo;
 
-import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -64,11 +63,10 @@ public class MainActivity extends BaseActivity {
 
 
     @Override
-    public boolean handleMessage(@NonNull @NotNull Message message) {
+    public boolean handleMessage(@NonNull  Message message) {
         logCat("handleMessage  message.what "+message.what);
         switch (message.what) {
             case 1001:
-
                 /*
                 * {
                     "refresh_token": "25.6a79e94b2cc92571e57c12f16b3d062d.315360000.1951874992.282335-25104979",
@@ -79,7 +77,6 @@ public class MainActivity extends BaseActivity {
                     "session_secret": "94ec45de181d151310d55efb96aa02b3"
                   }
                 * */
-
                 accessToken = (String) message.obj;
                 toast("初始化完成！");
                 break;
@@ -97,7 +94,7 @@ public class MainActivity extends BaseActivity {
         CatInfo catInfo = gson.fromJson(result, CatInfo.class);
         List<CatInfo.ResultBean> listCat = catInfo.getResult();
         if (listCat.size() == 0) {
-            toast("猫脸识别识别！");
+            toast("猫脸识别失败！");
             return;
         }
         textCatName.setText(listCat.get(0).getName());
